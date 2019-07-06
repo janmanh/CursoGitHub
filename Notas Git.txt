@@ -38,7 +38,7 @@ git log
 	--decorate 
 	--oneline
 	--all
-git merge [nombre rama]			fusiona la rama con otra la rama en [nombre rama] se fucionará con la rama en la que estamos
+git merge [nombre rama]			fusiona la rama con otra. La rama en [nombre rama] se fucionará con la rama en la que estamos
 
 Conflictos
 	ocurren cuando dos personas o dos ramas hacen un cambio sobre las mismas líneas y Git no sabe con cual cambios quedarse. Estos conflictos se tienen que resolver manualmente.
