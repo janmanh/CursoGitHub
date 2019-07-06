@@ -20,3 +20,5 @@ Videos vistos del curso
 16. Cerrando bifurcaciones con conflicto
 17. Accediendo al comando Git
 18. Realizando modificaciones en ... aquí me quedé
+19.
+20. Actualizando el repositorio
