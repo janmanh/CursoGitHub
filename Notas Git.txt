@@ -21,4 +21,6 @@ Para poder pasar a la línea de comandos ya sea el cmd o el git bash dedsde el G
 
 git diff [nombre de archivo]	Muestra los cambios específica en un archivo
 git rm?
+git reset HEAD [nombre de archivo]	saca del stage el archivo (el archivo no se actualizará cuando se haga el comando commit)
+
 
