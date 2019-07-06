@@ -1,0 +1,20 @@
+Curso de Git y GitHub Completo desde cero
+Ubicación: \\Freenas\Video\Cursos\Git y GitHub Completo Desde Cero
+
+Videos vistos del curso
+1. Introducción
+2. Qué es Git
+3. Qué es GitHub
+4. Qué diferencia hay Git de GitHub
+5. Puede que ya hayas usado GitHub
+6. Creando una cuenta de GitHub
+7.GitHub Pro y el pack para estudiantes
+8.GitHub Desktop
+9.GitKraken y otras alternativas
+10. Creando un proyecto
+11. Clonando un repositorio en tu ordenador
+12. Realizando cambios
+13. Subiendo cambios a GitHub
+14. Bifurcaciones
+15. Cerrando Bifurcaciones
+16. Cerrando Bifurcaciones con conflicto
