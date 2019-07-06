@@ -18,3 +18,7 @@ git log [nombre de archivo]		muestra un historial de acciones de Git
 git push 						Publica en GitHub los cambios guardados en el último commit local
 
 Para poder pasar a la línea de comandos ya sea el cmd o el git bash dedsde el GitHub desktop primero debemos haber inicializado git en la carpeta
+
+git diff [nombre de archivo]	Muestra los cambios específica en un archivo
+git rm?
+

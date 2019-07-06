@@ -17,4 +17,6 @@ Videos vistos del curso
 13. Subiendo cambios a GitHub
 14. Bifurcaciones
 15. Cerrando Bifurcaciones
-
+16. Cerrando bifurcaciones con conflicto
+17. Accediendo al comando Git
+18. Realizando modificaciones en ... aquí me quedé
