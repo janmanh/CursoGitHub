@@ -20,7 +20,9 @@ git push 						Publica en GitHub los cambios guardados en el último commit loca
 Para poder pasar a la línea de comandos ya sea el cmd o el git bash dedsde el GitHub desktop primero debemos haber inicializado git en la carpeta
 
 git diff [nombre de archivo]	Muestra los cambios específica en un archivo
-git rm?
+git rm?							Remueve un archivo del repositorio
 git reset HEAD [nombre de archivo]	saca del stage el archivo (el archivo no se actualizará cuando se haga el comando commit)
-
-
+git remote						muestra el origen remoto del repositorio
+git remote -v 					muestra la url del orige remoto del repositorio
+git push [origen] [rama]
+git pull [origen] [rama]		descarga los cambios externos				
