@@ -20,9 +20,27 @@ git push 						Publica en GitHub los cambios guardados en el último commit loca
 Para poder pasar a la línea de comandos ya sea el cmd o el git bash dedsde el GitHub desktop primero debemos haber inicializado git en la carpeta
 
 git diff [nombre de archivo]	Muestra los cambios específica en un archivo
-git rm?							Remueve un archivo del repositorio
+git rm							Remueve un archivo del repositorio
 git reset HEAD [nombre de archivo]	saca del stage el archivo (el archivo no se actualizará cuando se haga el comando commit)
 git remote						muestra el origen remoto del repositorio
-git remote -v 					muestra la url del orige remoto del repositorio
+	-v 					muestra la url del orige remoto del repositorio
 git push [origen] [rama]
-git pull [origen] [rama]		descarga los cambios externos				
+git pull [origen] [rama]		descarga los cambios externos siempre debe hacerse antes de push
+git branch [nombre rama]		crea una nueva rama. [los nombres de rama no pueden llevar espacios]
+	-d [nombre rama]			Elimina una rama siempre que no haya cambios pendientes en esa rama
+	-D {nombre rama]			Fuerza la eliminación de una rama
+git check out [nombre rama] 	cambia de rama
+git log --decorate				muestra más detalles del log como la rama
+git checkout -b 				crea una rama y te cambia a ella
+git commit -am					?
+git log 
+	--graph 
+	--decorate 
+	--oneline
+	--all
+git merge [nombre rama]			fusiona la rama con otra la rama en [nombre rama] se fucionará con la rama en la que estamos
+
+Conflictos
+	ocurren cuando dos personas o dos ramas hacen un cambio sobre las mismas líneas y Git no sabe con cual cambios quedarse. Estos conflictos se tienen que resolver manualmente.
+
+git commit --amend				permite hacer cambios al último commit hecho
