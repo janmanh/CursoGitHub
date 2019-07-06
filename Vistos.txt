@@ -1,4 +1,4 @@
-Curso de Git y GitHub Completo desde cero
+﻿Curso de Git y GitHub Completo desde cero
 Ubicación: \\Freenas\Video\Cursos\Git y GitHub Completo Desde Cero
 
 Videos vistos del curso
@@ -17,4 +17,4 @@ Videos vistos del curso
 13. Subiendo cambios a GitHub
 14. Bifurcaciones
 15. Cerrando Bifurcaciones
-16. Cerrando Bifurcaciones con conflicto
+
