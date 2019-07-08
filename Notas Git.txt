@@ -7,9 +7,102 @@ En realidad, los cambios y diferencias entre las versiones de nuestros proyecto 
     El comando para almacenar definitivamente todos los cambios que por ahora viven en el staging area es git commit. También podemos guardar un mensaje para recordar muy bien qué cambios hicimos en este commit con el argumento -m "Mensaje del commit".
     Por último, si queremos mandar nuestros commits a un servidor remoto, un lugar donde todos podamos conectar nuestros proyectos, usamos el comando git push.
 
+-----------------------------------------------------------------------------------------------
+									GIT TERMINAL
+-----------------------------------------------------------------------------------------------
 
+Cómo iniciar el control de versiones de un repositorio?
+Cómo seguir o monitorear los cambios en un archivo?
+Cómo guardar los cambios?
+Cómo saber qué cambios se han hecho en un archivo?
+Qué es una rama?
+Cómo crear y moverse entre ramas?
+Cómo fusionar ramas?
+Cómo sincronizar una carpeta a GitHub?
+Cómo guardar cambios en GitHub?
+Cómo bajar los cambios de GitHub a mi carpeta local?
+Cómo clonar un repositorio de GitHub a mi ordenador?
+Cómo borrar un repositorio de GitHub?
+Cómo recuperar una versión anterior?
+	
+_______________________________________________________________________________________________
+
+
+
+-----------------------------------------------------------------------------------------------
+									GIT DESKTOP
+-----------------------------------------------------------------------------------------------
+Instalar Git Desktop 
+Sincronizar con mi cuenta de GitHub
+_______________________________________________________________________________________________
+
+
+
+-----------------------------------------------------------------------------------------------
+										GitHub
+-----------------------------------------------------------------------------------------------
+Cómo crear un repositorio
+Cómo ligar un repositorio de GitHub a uno local en mi ordenador.
+
+Editar codigo desde la web
+	Boton editar
+		
+
+ISSUES{
+	Cómo crear un Issue?
+	Seguimiento a los Issues
+	Task list
+	referenciar un issue desde la terminal
+		en un commit en el comentario poner el número de issue: issue #1
+	Cómo cerrar un issue desde la terminal
+		closes #1
+}		
+
+FORK.{
+	Crea una copia de un proyecto existente para poder modificarlo como si fuera propio		
+}
+	
+Pull request{
+	Qué es?
+	Cómo se hace?
+	Cómo se cierra?
+	labels
+	milestones
+	assignees
+}
+	
+WIKI{
+	
+}
+			
+SETTINGS{
+		
+}
+
+RELEASES{
+}
+
+GIST
+	
+
+Watch y star followers
+
+CUENTAS DE ORGANIZACIÓN
+
+GitHub Pages
+	/nombre proyecto
+	usuario.github.io //pagina personal
+	evitar repetir nombres de carpetas y de repositorios github
+
+-----------------------------------------------------------------------------------------------		
+	
+		
+	
+
+git clone [url]					clona un repositorio desde una url
 git init						le dice a git que usaremos el control de versiones en esta carpeta
 git add [nombre de archivo]		añade un archivo a monitoreo de versiones
+	-p 							Permite seleccionar los cambios que se guardarán en el siguiente commit
 git add .						añade toda la carpeta al monitoreo
 git commit						guarda los cambios en Git
 git commit -m "mensaje"			añade un mensaje a la version guardada en git. Si se omite, se abre un editor de texto para generar comentarios y descripcion de cambios el texto debe ir entre comillas
@@ -23,7 +116,8 @@ git diff [nombre de archivo]	Muestra los cambios específica en un archivo
 git rm							Remueve un archivo del repositorio
 git reset HEAD [nombre de archivo]	saca del stage el archivo (el archivo no se actualizará cuando se haga el comando commit)
 git remote						muestra el origen remoto del repositorio
-	-v 					muestra la url del orige remoto del repositorio
+	-v 							muestra la url del orige remoto del repositorio
+git remote add [url]			agrega un nuevo origen de GitHub al repositorio
 git push [origen] [rama]
 git pull [origen] [rama]		descarga los cambios externos siempre debe hacerse antes de push
 git branch [nombre rama]		crea una nueva rama. [los nombres de rama no pueden llevar espacios]
@@ -44,3 +138,19 @@ Conflictos
 	ocurren cuando dos personas o dos ramas hacen un cambio sobre las mismas líneas y Git no sabe con cual cambios quedarse. Estos conflictos se tienen que resolver manualmente.
 
 git commit --amend				permite hacer cambios al último commit hecho
+
+Issues y Pull Request
+
+Issues es un foro que tiene GitHub en el cual puedes hacer comentarios al autor sobre el código
+Pull request son peticiones para subir código o modificaciones formalmente
+
+Issues:
+	Texto markdown:
+		**Texto en Negrita**
+		_Texto en currsiva_
+		'codigo'
+		*Lista
+	Codigo coloreado
+			'''lenguaje
+
+

@@ -8,9 +8,9 @@ Videos vistos del curso
 4. Qué diferencia hay Git de GitHub
 5. Puede que ya hayas usado GitHub
 6. Creando una cuenta de GitHub
-7.GitHub Pro y el pack para estudiantes
-8.GitHub Desktop
-9.GitKraken y otras alternativas
+7. GitHub Pro y el pack para estudiantes
+8. GitHub Desktop
+9. GitKraken y otras alternativas
 10. Creando un proyecto
 11. Clonando un repositorio en tu ordenador
 12. Realizando cambios
@@ -19,6 +19,38 @@ Videos vistos del curso
 15. Cerrando Bifurcaciones
 16. Cerrando bifurcaciones con conflicto
 17. Accediendo al comando Git
-18. Realizando modificaciones en ... aquí me quedé
-19.
+18. Realizando modificaciones en el código
+19. Subiendo los cambios a GitHub desde la terminal
 20. Actualizando el repositorio
+21. Crear ramas
+22. Múltiples ramas en paralelo
+23. Fusionando una rama desde la terminal
+24. Fusiones con conflictos desde la terminal
+25. Fusiones con conflictos desde la terminal (parte 2)
+26. Tres comandos útiles para la terminal
+27 - Introducción a lo que ofrece la web de GitHub
+28 - Creando un issue
+29 - Trazabilidad de los issues
+30 - Varias formas de cerrar un issue
+31 - Hacer un fork
+32 - Haciendo cambios en MI fork
+33 - Crear un pull request
+34 - Aprobar un pull request
+35 - Pull requests locales (parte 1)
+36 - Pull requests locales (parte 2)
+37 - Trabajando en Git desde el navegador
+38 - Usando la wiki de GitHub
+39 - Borrar repositorios y más sobre Settings
+40 - Creando una organización
+41 - Hosting gratis en GitHub Pages
+42 - Creando una web personal en GitHub
+43 - Jekyll, o usar GitHub para crear un blog
+44 - Usando Jekyll en GitHub
+45 - Como usar tu propio dominio en GitHub Pages
+46 - Mantener un perfil público
+47 - Socializar en GitHub
+48 - Controlando versiones con releases
+49 - Gists, compartir fragmentos de codigo
+50 - Tres cosas que deberias investigar ahora
+
+Terminado!!!!!!!
