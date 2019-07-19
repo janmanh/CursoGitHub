@@ -1,0 +1,5 @@
+#utiliza esta plantilla como formato para hacer los comentarios en un commit
+
+#titulo
+#descripcion
+#cambios

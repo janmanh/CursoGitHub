@@ -1,0 +1,265 @@
+Un sistema de control de versiones como Git nos ayuda a guardar el historial de cambios y crecimiento de los archivos de nuestro proyecto.
+
+En realidad, los cambios y diferencias entre las versiones de nuestros proyecto pueden tener similitudes, algunas veces los cambios pueden ser solo una palabra o una parte específica de un archivo específico. Git está optimizado para guardar todos estos cambios de forma atómica e incremental, o sea, aplicando cambios sobre los últimos cambios, estos sobre los cambios anteriores y así hasta el inicio de nuestro proyecto.
+
+    El comando para iniciar nuestro repositorio, o sea, indicarle a Git que queremos usar su sistema de control de versiones en nuestro proyecto, es git init.
+    El comando para que nuestro repositorio sepa de la existencia de un archivo o sus últimos cambios es git add. Este comando no almacena las actualizaciones de forma definitiva, solo las guarda en algo que conocemos como “Staging Area” (no te preocupes, lo entenderemos más adelante).
+    El comando para almacenar definitivamente todos los cambios que por ahora viven en el staging area es git commit. También podemos guardar un mensaje para recordar muy bien qué cambios hicimos en este commit con el argumento -m "Mensaje del commit".
+    Por último, si queremos mandar nuestros commits a un servidor remoto, un lugar donde todos podamos conectar nuestros proyectos, usamos el comando git push.
+
+-----------------------------------------------------------------------------------------------
+									GIT TERMINAL
+-----------------------------------------------------------------------------------------------
+
+*Cómo instalar Git?
+	1. Descarga Git desde la página oficial: https://git-scm.com/
+	2. sigue las instrucciones en el archivo instalacion.pptx
+
+*Cómo iniciar el control de versiones de un repositorio?
+    El comando para iniciar nuestro repositorio, o sea, indicarle a Git que queremos usar su sistema de control de versiones en nuestro proyecto es:
+	
+	$ git init
+	
+	Opciones:	
+	$ git init -q 		instalación silenciosa. Muestra solo mensajes de emergencia.
+	
+	PROTOTIPO:
+	
+	git init [-q | --quiet] [--bare] [--template=<template_directory>]
+	  [--separate-git-dir <git dir>]
+	  [--shared[=<permissions>]] [directory]
+	
+	referencia: https://git-scm.com/docs/git-init
+	
+*Cómo seguir o monitorear los cambios en un archivo?
+	El comando para que nuestro repositorio sepa de la existencia de un archivo o sus últimos cambios es git add. Este comando no almacena las actualizaciones de forma definitiva, solo las guarda en algo que conocemos como “Staging Area” (no te preocupes, lo entenderemos más adelante).
+	
+	$ git add <nombre_del_archivo>
+
+	Opciones:
+		$ git add .			añade todos los archivos en el directorio raíz al indice.
+		$ git add -v		muestra una salidad detallada
+		$ git add -f		fuerza todos los archivos, incluso los que debieran ser ignorados
+		$ git add -i 		añade los cambios interactivamente
+		$ git add -p 		permite elegir los cambios que se agregarán al índice
+		$ git add -n		no añade el archivo. Solo muestra si existe o si será ignorado.
+	
+	PROTOTIPO:
+		git add [--verbose | -v] [--dry-run | -n] [--force | -f] [--interactive | -i] [--patch | -p]
+		  [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]
+		  [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing] [--renormalize]
+		  [--chmod=(+|-)x] [--] [<pathspec>…​]
+	referencia: https://git-scm.com/docs/git-add
+
+*Cómo guardar los cambios?
+	El comando para almacenar definitivamente todos los cambios que por ahora viven en el staging area es git commit. También podemos guardar un mensaje para recordar muy bien qué cambios hicimos en este commit con el argumento -m "Mensaje del commit".	
+	
+	$ git commit
+	
+	Opciones:
+		$git commit -a					Añade todos los archivos borrados o modificados sin necesidad de haberlos agregado al stage.
+		$git commit -p					añade los cambios interactivamente, uno por uno.
+		$git commit -m	"mensaje"		agrega un mensaje al commit. Puede usarse multiples veces. Cada mensaje se concatena como un parrafo independiente.
+		$git commit -t 	<archivo>		usa el contenido de <archivo> como plantilla para los comentarios de este commit.		
+		$git commit --amend				permite corregir el último commit.
+	
+	PROTOTIPO:
+		git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+		   [--dry-run] [(-c | -C | --fixup | --squash) <commit>]
+		   [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+		   [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+		   [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+		   [-i | -o] [-S[<keyid>]] [--] [<file>…​]
+	
+	Referencia: https://git-scm.com/docs/git-commit
+
+*Cómo descartar cambios?
+	Cuando preparas uno o varios archivos con el comando add, estos se guardan en el área de "stage". Esto quiere decir que los cambios que hayas realizado estan listos para ser confirmados y guardados con un commit. Sin embargo si deseas omitir un archivo que ya preparaste y agregaste al stage, o de plano quieres sacar todos los archivos, tienes las siguientes opciones.
+	
+	$ git rm --cached <archivo>		Elimina el <archivo> de staged
+	$ git reset HEAD				Reinicia todo el HEAD por lo que todos los archivos se eliminan del stage
+	
+	Otra herramienta util es crear un archivo .gitignore dentro del cual puedes poner todos los archivos que no quieres que tengan seguimiento de git. El formato del archivo .gitignore inicia con un encabezado:
+	$ cat .gitignore 
+	posteriormente se listan los archivos que deseas ignorar.
+
+Cómo seleccionar los cambios a guardar?
+	git add -p
+	git commit --patch 
+
+*Cómo saber qué cambios se han hecho en un archivo?
+	$git status 					Muestra el estado de los cambios en el repositorio. Tanto los que entran en el commit como los que no.
+	$git status -v 					Muestra los cambios a detalle. Muestra los cambios en el contenido de los archivos
+	$git diff						Muestra las diferencias de todo lo que no se ha añadiso al stage (si no se ha agregado nada).
+	$git diff --cached				Muestra las diferencias de todo lo que ya se añadió al stage vs. el último commit
+	$git diff HEAD					Muestra las diferencias de todo vs. el último commit.
+
+Qué es una rama?
+	git branch
+
+Cómo crear y moverse entre ramas?
+	git checkout
+	
+Cómo fusionar ramas?
+	git merge
+
+git init
+git status
+git add .
+git commmit
+	
+_______________________________________________________________________________________________
+
+
+
+-----------------------------------------------------------------------------------------------
+									GIT DESKTOP
+-----------------------------------------------------------------------------------------------
+Instalar Git Desktop 
+Sincronizar con mi cuenta de GitHub
+_______________________________________________________________________________________________
+
+
+
+-----------------------------------------------------------------------------------------------
+										GitHub
+-----------------------------------------------------------------------------------------------
+Cómo crear un repositorio
+Cómo ligar un repositorio de GitHub a uno local en mi ordenador.
+	tres casos
+	1. Repositorio nuevo.
+	2. Clonar un repositorio de GitHub en mi carpeta local.
+	3. Bajar cambios o archivos desde Github a mi carpeta local.
+	4. Subir cambios de mi carpeta local a un repositorio de GitHub.
+
+Cómo sincronizar una carpeta a GitHub?
+Cómo guardar cambios en GitHub?
+Cómo bajar los cambios de GitHub a mi carpeta local?
+Cómo clonar un repositorio de GitHub a mi ordenador?
+Cómo borrar un repositorio de GitHub?
+Cómo recuperar una versión anterior?
+
+
+Editar codigo desde la web
+	Boton editar
+		
+
+ISSUES{
+	Cómo crear un Issue?
+	Seguimiento a los Issues
+	Task list
+	referenciar un issue desde la terminal
+		en un commit en el comentario poner el número de issue: issue #1
+	Cómo cerrar un issue desde la terminal
+		closes #1
+}		
+
+FORK.{
+	Crea una copia de un proyecto existente para poder modificarlo como si fuera propio		
+}
+	
+Pull request{
+	Qué es?
+	Cómo se hace?
+	Cómo se cierra?
+	labels
+	milestones
+	assignees
+}
+	
+WIKI{
+	
+}
+			
+SETTINGS{
+		
+}
+
+RELEASES{
+}
+
+GIST
+	
+
+Watch y star followers
+
+CUENTAS DE ORGANIZACIÓN
+
+GitHub Pages
+	/nombre proyecto
+	usuario.github.io //pagina personal
+	
+	evitar repetir nombres de carpetas y de repositorios github
+
+-----------------------------------------------------------------------------------------------		
+
+echo "# janmanh.github.io" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/janmanh/janmanh.github.io.git
+git push -u origin master
+
+git remote add origin https://github.com/janmanh/janmanh.github.io.git
+git push -u origin master
+
+
+	
+-----------------------------------------------------------------------------------------------		
+	
+
+git clone [url]					clona un repositorio desde una url
+git init						le dice a git que usaremos el control de versiones en esta carpeta
+git add [nombre de archivo]		añade un archivo a monitoreo de versiones
+	-p 							Permite seleccionar los cambios que se guardarán en el siguiente commit
+git add .						añade toda la carpeta al monitoreo
+git commit						guarda los cambios en Git
+git commit -m "mensaje"			añade un mensaje a la version guardada en git. Si se omite, se abre un editor de texto para generar comentarios y descripcion de cambios el texto debe ir entre comillas
+git status						muestra el estado de los archivos 
+git log [nombre de archivo]		muestra un historial de acciones de Git
+git push 						Publica en GitHub los cambios guardados en el último commit local
+
+Para poder pasar a la línea de comandos ya sea el cmd o el git bash dedsde el GitHub desktop primero debemos haber inicializado git en la carpeta
+
+git diff [nombre de archivo]	Muestra los cambios específica en un archivo
+git rm							Remueve un archivo del repositorio
+git reset HEAD [nombre de archivo]	saca del stage el archivo (el archivo no se actualizará cuando se haga el comando commit)
+git remote						muestra el origen remoto del repositorio
+	-v 							muestra la url del orige remoto del repositorio
+git remote add [url]			agrega un nuevo origen de GitHub al repositorio
+git push [origen] [rama]
+git pull [origen] [rama]		descarga los cambios externos siempre debe hacerse antes de push
+git branch [nombre rama]		crea una nueva rama. [los nombres de rama no pueden llevar espacios]
+	-d [nombre rama]			Elimina una rama siempre que no haya cambios pendientes en esa rama
+	-D {nombre rama]			Fuerza la eliminación de una rama
+git check out [nombre rama] 	cambia de rama
+git log --decorate				muestra más detalles del log como la rama
+git checkout -b 				crea una rama y te cambia a ella
+git commit -am					?
+git log 
+	--graph 
+	--decorate 
+	--oneline
+	--all
+git merge [nombre rama]			fusiona la rama con otra. La rama en [nombre rama] se fucionará con la rama en la que estamos
+
+Conflictos
+	ocurren cuando dos personas o dos ramas hacen un cambio sobre las mismas líneas y Git no sabe con cual cambios quedarse. Estos conflictos se tienen que resolver manualmente.
+
+git commit --amend				permite hacer cambios al último commit hecho
+
+Issues y Pull Request
+
+Issues es un foro que tiene GitHub en el cual puedes hacer comentarios al autor sobre el código
+Pull request son peticiones para subir código o modificaciones formalmente
+
+Issues:
+	Texto markdown:
+		**Texto en Negrita**
+		_Texto en currsiva_
+		'codigo'
+		*Lista
+	Codigo coloreado
+			'''lenguaje
+
+
