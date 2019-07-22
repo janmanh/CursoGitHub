@@ -57,11 +57,10 @@ En realidad, los cambios y diferencias entre las versiones de nuestros proyecto 
 	$ git commit
 	
 	Opciones:
-		$git commit -a					Añade todos los archivos borrados o modificados sin necesidad de haberlos agregado al stage.
-		$git commit -p					añade los cambios interactivamente, uno por uno.
-		$git commit -m	"mensaje"		agrega un mensaje al commit. Puede usarse multiples veces. Cada mensaje se concatena como un parrafo independiente.
-		$git commit -t 	<archivo>		usa el contenido de <archivo> como plantilla para los comentarios de este commit.		
-		$git commit --amend				permite corregir el último commit.
+		$ git commit -a					Añade todos los archivos borrados o modificados sin necesidad de haberlos agregado al stage. Evita el comando git add
+		$ git commit -p					Añade los cambios interactivamente, uno por uno.
+		$ git commit -m	"mensaje"		Agrega un mensaje al commit. Puede usarse multiples veces. Cada mensaje se concatena como un parrafo independiente.
+		$ git commit -t <archivo>		Usa el contenido de <archivo> como plantilla para los comentarios de este commit.		
 	
 	PROTOTIPO:
 		git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
@@ -77,37 +76,110 @@ En realidad, los cambios y diferencias entre las versiones de nuestros proyecto 
 	Cuando preparas uno o varios archivos con el comando add, estos se guardan en el área de "stage". Esto quiere decir que los cambios que hayas realizado estan listos para ser confirmados y guardados con un commit. Sin embargo si deseas omitir un archivo que ya preparaste y agregaste al stage, o de plano quieres sacar todos los archivos, tienes las siguientes opciones.
 	
 	$ git rm --cached <archivo>		Elimina el <archivo> de staged
+	$ git reset HEAD <archivo>		Elimina el <archivo> de staged
 	$ git reset HEAD				Reinicia todo el HEAD por lo que todos los archivos se eliminan del stage
 	
 	Otra herramienta util es crear un archivo .gitignore dentro del cual puedes poner todos los archivos que no quieres que tengan seguimiento de git. El formato del archivo .gitignore inicia con un encabezado:
 	$ cat .gitignore 
 	posteriormente se listan los archivos que deseas ignorar.
 
-Cómo seleccionar los cambios a guardar?
-	git add -p
-	git commit --patch 
+	$ git commit --amend			Permite corregir el último commit.
+	$ git checkout <archivo>		Regresa el archivo al estado del último commit CUIDADO: este comando descarta los cambios y sobreescribe el archivo original.
 
-*Cómo saber qué cambios se han hecho en un archivo?
-	$git status 					Muestra el estado de los cambios en el repositorio. Tanto los que entran en el commit como los que no.
-	$git status -v 					Muestra los cambios a detalle. Muestra los cambios en el contenido de los archivos
-	$git diff						Muestra las diferencias de todo lo que no se ha añadiso al stage (si no se ha agregado nada).
-	$git diff --cached				Muestra las diferencias de todo lo que ya se añadió al stage vs. el último commit
-	$git diff HEAD					Muestra las diferencias de todo vs. el último commit.
+*Cómo seleccionar los cambios a guardar?
+	$ git add -p
+	$ git commit --patch 
 
+*Cómo ver los cambios hechos y los que se van a guardar?
+	$ git status 					Muestra el estado de los cambios en el repositorio. Tanto los que entran en el commit como los que no.
+	$ git status -v 				Muestra los cambios a detalle. Muestra los cambios en el contenido de los archivos
+	$ git diff						Muestra las diferencias de todo lo que no se ha añadiso al stage (si no se ha agregado nada).
+	$ git diff --cached				Muestra las diferencias de todo lo que ya se añadió al stage vs. el último commit
+	$ git diff HEAD	<archivo>		Muestra las diferencias de todo vs. el último commit.
+	
+
+*Cómo ver el historial de cambios realizados?
+	$ git log 						Muestra el historico de commit hechos.
+	$ git log -2					La opcion de número muestra solo los n últimos commit en el historial.
+		-p 							Muestra el parche introducido en cada confirmación.
+		--word-diff 				Muestra el parche en formato de una palabra.
+		--stat 						Muestra estadísticas sobre los archivos modificados en cada confirmación.
+		--shortstat 				Muestra solamente la línea de resumen de la opción --stat.
+		--name-only 				Muestra la lista de archivos afectados.
+		--name-status 				Muestra la lista de archivos afectados, indicando además si fueron añadidos, modificados o eliminados.
+		--abbrev-commit 			Muestra solamente los primeros caracteres de la suma SHA-1, en vez de los 40 caracteres de que se compone.
+		--relative-date 			Muestra la fecha en formato relativo (por ejemplo, “2 weeks ago” (“hace 2 semanas”)) en lugar del formato completo.
+		--graph 					Muestra un gráfico ASCII con la historia de ramificaciones y uniones.
+		--pretty 					Muestra las confirmaciones usando un formato alternativo. Posibles opciones son oneline, short, full, fuller y format (mediante el cual puedes especificar tu propio formato).
+		--oneline 					Un cómodo acortamiento de la opción --pretty=oneline --abbrev-commit.
+
+	$ git log --pretty=format:""
+		Opciones de formato:
+			%H 	Hash de la confirmación
+			%h 	Hash de la confirmación abreviado
+			%T 	Hash del árbol
+			%t 	Hash del árbol abreviado
+			%P 	Hashes de las confirmaciones padre
+			%p 	Hashes de las confirmaciones padre abreviados
+			%an 	Nombre del autor
+			%ae 	Dirección de correo del autor
+			%ad 	Fecha de autoría (el formato respeta la opción -–date)
+			%ar 	Fecha de autoría, relativa
+			%cn 	Nombre del confirmador
+			%ce 	Dirección de correo del confirmador
+			%cd 	Fecha de confirmación
+			%cr 	Fecha de confirmación, relativa
+			%s 	Asunto
+
+Cómo trabajar con repositorios remotos
+	$ git remote 							Muestra los repositorios remotos activos.
+	$ git remote -v							Muestra a detalle las url de los repositorios remotos
+	$ git remote add [nombre] [url]			Agrega un repositorio remoto. Por default nombre = origin pero puedes cambiarlo por el nombre de la carpeta remota
+	$ git clone [url]							Clona (descarga) todos los archivos del repositorio remoto a nuestro ordenador
+	$ git fetch [nombre-remoto]				Trae los datos del repositorio remoto (origin). No combina automáticamente las ramas ni los archivos.				
+	$ git pull [nombre][rama]					Trae los datos del repositorio remoto y los combina automáticamente con el directorio local
+	$ git push [nombre][rama]					Envía los cambios hechos de manera local al servidor.
+			--all							sube todas las ramas locales al servidor
+			--prune							Borra del servidor las ramas que no esten presentes en el local
+			--mirror						Envía todo incluidos o clona el directorio local en el remoto incluidas las etiquetas.
+			-u								Crea una referencia (tracking) por cada rama que haya sido actualizada exitosamente
+			--tags							Envía sólo las etiquetas
+	$ git remote show [nombre]				Muestra detalles del repositorio remoto y local.
+	$ git remote rename [nombre][nombre nvo]	Cambia el nombre (referencia) del repositorio remoto.
+	$ git remote rm							Elimina las referencia al repositorio remoto (o sea se desconecta del proyecto)
+
+Cómo crear etiquetas?
+	$ git tag								Muestra las etiquetas existentes
+	$ git tag [nombre]					Crea una etiqueta ligera
+	$ git tag -l 							muestra las etiquetas de acuerdo a un patrón de búsqueda.
+	$ git tag -a -m 						Crea una etiqueta anotada
+	$ git tag -a [nombre][commit]			Crea una etiqueta en el commit asociado
+	
+	El contenido de las etiquetas se puede ver con el comando git show
+
+Alias
+	En git se pueden crear alias de comandos o de texto que usemos muy seguido
+		$ git config --global alias.[nombre] [comando]
+		
 Qué es una rama?
-	git branch
-
-Cómo crear y moverse entre ramas?
-	git checkout
+	$ git branch						Muestra las ramas del proyecto
+	$ git branch [nombre]				Crean una rama.
+	$ git checkout [nombre]				Se mueve a otra rama
+	$ git checkout -b [nombre]			Crea una rama y se mueve automáticamente a ella.
+	
 	
 Cómo fusionar ramas?
-	git merge
 
-git init
-git status
-git add .
-git commmit
+	$ git merge	[nombre]							Fusiona la rama [nombre] con la rama actual 
+
+Trabajr con ramas remotas
+	$ git push [repo][rama]							Envía los cambios a una rama.
+	$ git fetch origin								Importa la información de ramas de un repositorio remoto.
+	$ git merge [nombreremoto]/[rama]				Fusiona la rama remota con la rama actual.
+	$ git checkout -b [ramaLocal] [nombreremoto]/[ramaRemota]	Crea una rama local y la fusiona y enlaza automáticamente con la rama remota
 	
+	si ya tienes una rama local y quieres asignarla a una rama remota que acabas de traerte, o quieres cambiar la rama a la que le haces seguimiento, puedes usar en cualquier momento las opciones -u o --set-upstream-to del comando git branch.
+	$ git push origin --delete serverfix
 _______________________________________________________________________________________________
 
 
@@ -237,7 +309,7 @@ git log --decorate				muestra más detalles del log como la rama
 git checkout -b 				crea una rama y te cambia a ella
 git commit -am					?
 git log 
-	--graph 
+	--graph 					Muestra ramas graficamente
 	--decorate 
 	--oneline
 	--all
